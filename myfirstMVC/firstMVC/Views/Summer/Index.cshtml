@@ -1,0 +1,60 @@
+﻿@using firstMVC.Models
+@model List<Summer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Summer Events in Delaware</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>Summer Event</th>
+        <th>Year</th>
+        <th>Location</th>
+        <th>Active</th>
+        <th>Image</th>
+    </tr>
+    @foreach (Summer item in Model)
+    {
+    <tr>
+        <td>@item.SummerEvent </td>
+        <td>@item.SummerYear </td>
+        <td>@item.SummerLocation </td>
+        <td>@item.Active </td>
+        <td>
+            <img src="@item.ImageURL" width="250" />
+
+            @*@if (item.SummerEvent=="Italian")
+        {
+        <img src="~/Content/Images/Italian.jpg" width="200" />
+
+        }
+        else if(item.SummerEvent == "Greek")
+        {
+        <img src="~/Content/Images/greek.jpg" width="200" />
+        }
+        else{
+                <img src="~/Content/Images/polish.jpg" width="200" />
+        }
+            @if (item.SummerEvent.Contains("Italian"))
+                @switch (item.SummerEvent)
+                {
+                    case "Italian Festival":
+                        <img src="~/Content/Images/Italian.jpg" width="200" />
+                        break;
+                    case "Greek Festival":
+                        <img src="~/Content/Images/greek.jpg" width="200" />
+                        break;
+                    case "Polish Festival":
+                        <img src="~/Content/Images/polish.jpg" width="200" />
+                        break;
+
+                }*@
+
+        </td>
+
+    </tr>
+    }
+</table>
+
